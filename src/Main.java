@@ -11,17 +11,11 @@ import java.util.zip.DataFormatException;
 
 public class Main {
     public static void main(String[] args) throws IOException, DataFormatException{
-
         Scanner in = new Scanner(System.in);
         String userIn = in.nextLine().trim();
         System.out.println(calc(userIn));
         in.close();
-
-/*
-        TestIntToRoman();
-        TestRomanToInt();
-        TestCalc();
-*/
+        /*TestIntToRoman(); TestRomanToInt(); TestCalc(); */
     }
 
 
@@ -42,9 +36,6 @@ public class Main {
         if ((aIsRoman&& !bIsRoman)||(!aIsRoman&& bIsRoman) )
             throw new NumberFormatException("// т.к. используются одновременно разные системы счисления"); // выводим исключение если одно из чисел является риским а другое арабским
 
-
-
-
         int a,b;
         int result;
 
@@ -59,7 +50,6 @@ public class Main {
             a=RomanToInt(userSplit[0]);
             b=RomanToInt(userSplit[1]);
         }
-
 
         if (!(a>0&&a<=10)||!(b>0&&b<=10))                                                               // Вывод исключения при значения операндов не входящих в диапазон от 1 до 10
             throw new IOException("//т.к. калькудятор принимает на вход числа от 1 до 10 включительно");
@@ -80,7 +70,6 @@ public class Main {
         else
             throw new RuntimeException("//т.к. в римской системе нет отрицательных и нулевых чисел");   //Вывод исключения для римских чисел <=0
     }
-
 
     public static int RomanToInt(String val) {// Метод расчитан на значения от 01 до 39, начиная с 40 идет символ (XL)
         if (val.endsWith(Roman.IV.name())) return Roman.IV.value + RomanToInt(val.substring(0, val.length() - 2));// В первую очередь проверяются входжения сочетаний сиволов IV,IX для исключения
@@ -106,7 +95,6 @@ public class Main {
         result+= Roman.I.RepeatName(val);                                                            //
         return result;                                                                                //
     }
-
 
 
     // Tests
@@ -152,9 +140,3 @@ public class Main {
         }
     }
 }
-
-
-
-
-
-
